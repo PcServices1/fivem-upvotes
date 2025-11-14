@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fivem Upvotes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fivem Upvotes - Professional FiveM server upvotes & marketing service." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-card: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.2);
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --danger: #f97316;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(79, 70, 229, .25), transparent 50%),
+        radial-gradient(circle at bottom, rgba(236, 72, 153, .15), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .wrapper {
+      max-width: 1080px;
+      width: 100%;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.99));
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow:
+        0 25px 50px rgba(15,23,42,0.9),
+        0 0 0 1px rgba(148, 163, 184, 0.15);
+      backdrop-filter: blur(18px);
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 32px 36px;
+      }
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #4f46e5);
+      border: 2px solid rgba(15,23,42,0.7);
+      box-shadow: 0 0 25px rgba(79, 70, 229, 0.7);
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .badge-ar {
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .badge-ar strong {
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: 1.3fr 1fr;
+        align-items: flex-start;
+      }
+    }
+
+    .hero-text h2 {
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-text h2 {
+        font-size: 2.1rem;
+      }
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-text p span.highlight {
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .hero-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hero-list li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.75);
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary span.icon {
+      font-size: 1.1rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(79, 70, 229, 0.8);
+      background: #4338ca;
+    }
+
+    .cta-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .hero-tagline strong {
+      color: var(--text);
+    }
+
+    .pricing {
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent),
+                  linear-gradient(135deg, #020617, var(--bg-card));
+      border-radius: 20px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .pricing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+
+    .pricing-title {
+      font-size: 1rem;
+    }
+
+    .pricing-pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      color: var(--text-muted);
+    }
+
+    .pricing-grid {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .plan {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .plan-main {
+      font-size: 0.9rem;
+    }
+
+    .plan-main strong {
+      font-size: 1rem;
+    }
+
+    .plan-main span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .plan-price {
+      text-align: right;
+    }
+
+    .plan-price div {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .plan-price small {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-footer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-footer strong {
+      color: var(--text);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper">
+    <section class="card">
+      <header class="header">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-text">
+            <span>Perfect Store</span>
+            <h1>Fivem Upvotes</h1>
+          </div>
+        </div>
+        <div class="badge-ar">
+          <strong>خدمة بوستات فايف إم</strong> • Upvotes
+        </div>
+      </header>
+
+      <section class="hero">
+        <!-- Left side: text + CTA -->
+        <div class="hero-text">
+          <h2>Boost your FiveM server to the top.</h2>
+          <p>
+            نوفر خدمة <span class="highlight">Upvotes و Boosts</span> لسيرفرات FiveM
+            بأسعار منافسة وتجربة موثوقة 100٪.  
+            كل شيء يتم بشكل منظم وآمن من خلال ديسكورد.
+          </p>
+
+          <ul class="hero-list">
+            <li>Upvotes حقيقية للسيرفر الخاص بك</li>
+            <li>أسعار ثابتة وواضحة بدون أي تكاليف مخفية</li>
+            <li>دعم فني عبر الديسكورد <span dir="ltr">24/7</span></li>
+          </ul>
+
+          <div class="cta-row">
+            <!-- عدل رابط الديسكورد هون -->
+            <a class="btn-primary" href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" rel="noopener">
+              <span class="icon">💬</span>
+              Join our Discord
+            </a>
+            <span class="cta-note">انضم لديسكورد لطلب الباقة أو الاستفسار قبل الشراء.</span>
+          </div>
+
+          <p class="hero-tagline">
+            عربي / English • دفع عبر: Visa, MasterCard, PayPal, وغيرها.
+          </p>
+        </div>
+
+        <!-- Right side: pricing box -->
+        <aside class="pricing">
+          <div class="pricing-header">
+            <div class="pricing-title">Upvote Packages</div>
+            <div class="pricing-pill">أفضل قيمة للسيرفرات النشطة</div>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- تقدر تعدّل الأسعار حسب شغلك -->
+            <div class="plan">
+              <div class="plan-main">
+                <strong>100 Upvotes</strong>
+                <span>خيار مناسب للتجربة أو السيرفرات الجديدة</span>
+              </div>
+              <div class="plan-price">
+                <div>$100</div>
+                <small>مرة واحدة</small>
+              </div>
+            </div>
+
+            <div class="plan">
+              <div class="plan-main">
+                <strong>500 Upvotes</strong>
+                <span>للسيرفرات اللي تبغى ظهور قوي</span>
+              </div>
+              <div class="plan-price">
+                <div>$350</div>
+                <small>مرة واحدة</small>
+              </div>
+            </div>
+
+            <div class="plan">
+              <div class="plan-main">
+                <strong>1,000 Upvotes</strong>
+                <span>باقة احترافية للسيرفرات الكبيرة</span>
+              </div>
+              <div class="plan-price">
+                <div>$600</div>
+                <small>مرة واحدة</small>
+              </div>
+            </div>
+
+            <div class="plan">
+              <div class="plan-main">
+                <strong>2,000 Upvotes</strong>
+                <span>أقصى انتشار لسيرفرك في فترة قصيرة</span>
+              </div>
+              <div class="plan-price">
+                <div>$1,000</div>
+                <small>مرة واحدة</small>
+              </div>
+            </div>
+          </div>
+
+          <p class="pricing-footer">
+            الدفع يتم بعد التواصل معنا على الديسكورد لتأكيد الباقة.
+            <br />
+            <strong>ملاحظة:</strong> يمكن توفير باقات شهرية / أسبوعية خاصة عند الطلب.
+          </p>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> Fivem Upvotes • Perfect Store</span>
+        <span>Contact via Discord only.</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // يحدّث سنة الحقوق تلقائياً
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
